@@ -1,0 +1,39 @@
+/* stylelint-disable selector-class-pattern */
+img {
+  width: 100%;
+  max-width: 100%;
+}
+
+label {
+  display: inline-block;
+  margin: 1.25rem 0 0.5rem;
+}
+
+input {
+  padding: 0.5rem 0;
+}
+
+textarea {
+  resize: none;
+}
+
+input,
+textarea {
+  width: 100%;
+  display: block;
+}
+
+.submit-button__column {
+  text-align: right;
+}
+
+.submit-button {
+  /* display: inline block; */
+  width: initial;
+  text-align: right;
+  margin-top: 2rem;
+}
+
+.justify-content-end {
+  justify-content: flex-end;
+}

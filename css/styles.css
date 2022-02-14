@@ -1,0 +1,38 @@
+:root {
+  --code-journal-background: rgb(240, 240, 240);
+  --purple-color: rgb(86, 43, 129);
+}
+
+body {
+  background: var(--code-journal-background);
+}
+
+header {
+  color: white;
+  background-color: var(--purple-color);
+}
+
+h1,
+h2,
+label {
+  text-transform: capitalize;
+}
+
+label {
+  font-weight: 700;
+}
+
+input,
+textarea {
+  border: 2px solid rgba(128, 128, 128, 0.219);
+  border-radius: 4px;
+}
+
+input:hover,
+textarea:hover {
+  border-color: var(--purple-color);
+}
+
+.submit-button:hover {
+  border-color: none;
+}

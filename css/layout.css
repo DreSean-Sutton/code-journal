@@ -31,4 +31,8 @@
   .column-half {
     width: 50%;
   }
+
+  .label-title {
+    margin-top: 0;
+  }
 }
