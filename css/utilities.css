@@ -1,4 +1,7 @@
 /* stylelint-disable selector-class-pattern */
+
+/* BASE CSS SELECTORS */
+
 img {
   width: 100%;
   max-width: 100%;
@@ -10,11 +13,12 @@ label {
 }
 
 input {
-  padding: 0.5rem 0;
+  padding: 0.5rem 0 0.5rem 0.4rem;
 }
 
 textarea {
   resize: none;
+  padding-left: 0.5rem;
 }
 
 input,
@@ -23,16 +27,20 @@ textarea {
   display: block;
 }
 
-.submit-button__column {
+/* FORM SECTION */
+
+.submit-button__col {
   text-align: right;
 }
 
 .submit-button {
-  /* display: inline block; */
   width: initial;
   text-align: right;
-  margin-top: 2rem;
+  margin: 1rem 0 2rem;
+  padding: 0.25rem 0.6rem;
 }
+
+/* UTILITY CLASSES */
 
 .justify-content-end {
   justify-content: flex-end;
