@@ -8,9 +8,11 @@ var $message = document.querySelector('#message');
 var $photoURL = document.querySelector('#photo-url');
 var $submit = document.querySelector('#submit');
 var $form = document.querySelector('#form');
+var $entriesList = document.querySelector('#entries-list');
 
 $photoURL.addEventListener('input', handleImageSwap);
 $form.addEventListener('submit', handleFormSubmit);
+window.addEventListener('DOMContentLoaded', handleDOMEntries);
 
 function handleImageSwap(event) {
   $image.src = event.target.value;
@@ -25,19 +27,10 @@ function handleFormSubmit(event) {
     nextEntryId: data.nextEntryId + 1
   };
   data.nextEntryId++;
-  data.entries.push(formValues);
+  data.entries.unshift(formValues);
   $form.reset();
   $image.src = 'images/placeholder-image-square.jpg';
 }
-
-/*
--call the create element method of document with DIV as it's argument and assign it's value to var imgDiv
--call the create element method of document with IMG as it's argument and assign it's value to var img
--call the create element method of document with DIV as it's argument and assign it's value to var textDiv
--call the create element method of document with h3 as it's argument and assign it's value to var entryTitle
--call the create element method of document with p as it's argument and assign it's value to var entryText
-
-*/
 
 function renderEntries(entry) {
   var $entryRow = document.createElement('ROW');
@@ -50,15 +43,23 @@ function renderEntries(entry) {
   $entryRow.className = 'row';
   $imgDiv.className = 'column-half';
   $textDiv.className = 'column-half';
+  $entryTitle.className = 'title-margin-top';
 
   $entryImg.setAttribute('src', entry.photoURL);
   $entryTitle.textContent = entry.title;
   $entryText.textContent = entry.message;
 
-  $entryRow.appendChild($textDiv);
   $entryRow.appendChild($imgDiv);
+  $entryRow.appendChild($textDiv);
   $imgDiv.appendChild($entryImg);
-  $textDiv.appendChild($entryText);
   $textDiv.appendChild($entryTitle);
+  $textDiv.appendChild($entryText);
   return $entryRow;
+}
+
+function handleDOMEntries(event) {
+
+  for (var i = 0; i < data.entries.length; i++) {
+    $entriesList.prepend(renderEntries(data.entries[i]));
+  }
 }
