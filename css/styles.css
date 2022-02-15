@@ -41,6 +41,15 @@ textarea:hover {
   border-color: var(--purple-color);
 }
 
+ul {
+  margin: 0;
+  padding: 0;
+}
+
+li {
+  list-style: none;
+}
+
 /* HEADER SECTION */
 
 .project-name {
