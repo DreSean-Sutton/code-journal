@@ -1,3 +1,4 @@
+/* stylelint-disable selector-class-pattern */
 :root {
   --code-journal-background: rgb(240, 240, 240);
   --purple-color: rgb(86, 43, 129);
@@ -50,11 +51,21 @@ li {
   list-style: none;
 }
 
+a {
+  color: #fff;
+  text-decoration: none;
+  text-transform: capitalize;
+}
+
 /* HEADER SECTION */
 
 .project-name {
   font-size: 1.3rem;
   font-weight: 400;
+}
+
+.entries-button__div > a {
+  font-size: 1.1rem;
 }
 
 /* FORM SECTION */

@@ -27,6 +27,16 @@ textarea {
   display: block;
 }
 
+/* HEADER SECTION */
+
+.header-layout {
+  align-items: center;
+}
+
+.entries-button__div {
+  margin-left: 2rem;
+}
+
 /* FORM SECTION */
 
 .submit-button {
