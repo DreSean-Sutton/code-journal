@@ -17,7 +17,6 @@ function handleImageSwap(event) {
 }
 
 function handleFormSubmit(event) {
-
   event.preventDefault();
   var formValues = {
     title: $title.value,
