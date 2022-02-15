@@ -1,6 +1,7 @@
 :root {
   --code-journal-background: rgb(240, 240, 240);
   --purple-color: rgb(86, 43, 129);
+  --input-border-color: rgba(128, 128, 128, 0.329);
 }
 
 /* BASE CSS SELECTORS */
@@ -31,7 +32,7 @@ label {
 
 input,
 textarea {
-  border: 2px solid rgba(128, 128, 128, 0.329);
+  border: 2px solid var(--input-border-color);
   border-radius: 4px;
 }
 
