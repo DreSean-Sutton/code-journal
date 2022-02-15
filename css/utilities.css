@@ -53,6 +53,12 @@ textarea {
   padding: 0.25rem 0.7rem;
 }
 
+/* DOM SECTION */
+
+.dom-row-layout {
+  margin-top: 2rem;
+}
+
 /* UTILITY CLASSES */
 
 .text-align-right {

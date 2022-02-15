@@ -34,9 +34,11 @@ function handleFormSubmit(event) {
     nextEntryId: data.nextEntryId
   };
   data.nextEntryId++;
-  data.entries.unshift(formValues);
+  data.entries.push(formValues);
   $form.reset();
   $image.src = 'images/placeholder-image-square.jpg';
+  showEntries();
+  $entriesList.prepend(renderEntries(data.entries[data.entries.length - 1]));
 }
 
 function showEntries() {
@@ -57,6 +59,16 @@ function showEntryForm() {
   $newButton.classList.add('hidden');
 }
 
+function stayOnSamePageAfterRefresh() {
+  if (data.view === 'entries') {
+    showEntries();
+  } else {
+    showEntryForm();
+  }
+}
+
+stayOnSamePageAfterRefresh();
+
 function renderEntries(entry) {
   var $entryRow = document.createElement('ROW');
   var $imgDiv = document.createElement('DIV');
@@ -65,7 +77,7 @@ function renderEntries(entry) {
   var $entryTitle = document.createElement('H3');
   var $entryText = document.createElement('P');
 
-  $entryRow.className = 'row';
+  $entryRow.className = 'row dom-row-layout';
   $imgDiv.className = 'column-half';
   $textDiv.className = 'column-half';
   $entryTitle.className = 'title-margin-top';
@@ -82,7 +94,7 @@ function renderEntries(entry) {
   return $entryRow;
 }
 
-function handleDOMEntries(event) {
+function handleDOMEntries(entries) {
 
   for (var i = 0; i < data.entries.length; i++) {
     $entriesList.prepend(renderEntries(data.entries[i]));

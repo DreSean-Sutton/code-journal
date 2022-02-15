@@ -91,6 +91,7 @@ a {
 }
 
 /* FORM SECTION */
+
 .submit-button {
   color: #fff;
   background-color: var(--purple-color);
@@ -106,6 +107,17 @@ a {
 
 .submit-button:active {
   transform: translateY(5px);
+}
+
+/* DOM SECTION */
+
+.dom-row-layout {
+  box-shadow: 0 0 5px grey;
+  transition: 300ms;
+}
+
+.dom-row-layout:hover {
+  transform: translateY(10px);
 }
 
 /* UTILITY CLASSES */
