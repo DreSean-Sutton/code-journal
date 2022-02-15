@@ -21,40 +21,56 @@
 <body>
   <header>
     <div class="container">
-      <div class="row">
-        <div class="column-full">
+      <div class="row header-layout">
+        <div class="">
           <h2 class="project-name">code journal</h2>
+        </div>
+        <div class="entries-button__div">
+          <a id="entries-button" href="#">entries</a>
         </div>
       </div>
     </div>
   </header>
   <main class="container">
+    <div class="row main-title-layout">
+      <div class="">
+        <h1>new entry</h1>
+      </div>
+      <div>
+        <a id="new-button" class="new-button hidden" href="#">new</a>
+      </div>
+    </div>
+    <div class="column-full no-entries-div hidden">
+      <p>No entries have been recorded.</p>
+    </div>
     <div data-view="entry-form">
       <form id="form" action="">
         <div class="row">
-          <div class="column-full">
-            <h1>new entry</h1>
-          </div>
           <div class="column-half img-div">
             <img id="image" class="img" src="images/placeholder-image-square.jpg" alt="placeholder image">
           </div>
           <div class="column-half">
-            <label class="label-title" for="title">title</label>
+            <label class="title-margin-top" for="title">title</label>
             <input id="title" type="text" required>
             <label for="photo-url">photo URL</label>
             <input id="photo-url" type="url" name="photo-url" required>
           </div>
           <div class="column-full">
             <label for="message">notes</label>
-            <textarea id="message" name="message" cols="30" rows="10" required></textarea>
+            <textarea id="message" name="message" cols="30" rows="13" required></textarea>
           </div>
         </div>
         <div class="row justify-content-end">
-          <div class="text-align-right">
+          <div class="submit-button__div text-align-right">
             <input id="submit" class="submit-button" value="save" type="submit">
           </div>
         </div>
       </form>
+    </div>
+    <div data-view="entries" class="hidden">
+      <ul id="entries-list">
+
+      </ul>
     </div>
   </main>
   <script src="js/data.js"></script>

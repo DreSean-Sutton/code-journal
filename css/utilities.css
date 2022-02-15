@@ -2,6 +2,10 @@
 
 /* BASE CSS SELECTORS */
 
+header {
+  padding: 0.1rem 0;
+}
+
 img {
   width: 100%;
   max-width: 100%;
@@ -13,7 +17,7 @@ label {
 }
 
 input {
-  padding: 0.5rem 0 0.5rem 0.4rem;
+  padding: 0.75rem 0 0.75rem 0.4rem;
 }
 
 textarea {
@@ -27,11 +31,45 @@ textarea {
   display: block;
 }
 
+/* HEADER/MAIN SECTION */
+
+.header-layout {
+  align-items: center;
+}
+
+.entries-button__div {
+  margin-left: 2rem;
+}
+
+.main-title-layout {
+  align-items: center;
+  justify-content: space-between;
+}
+
+.new-button {
+  padding: 0.6rem 1.1rem;
+}
+
 /* FORM SECTION */
 
 .submit-button {
-  margin: 1rem 0 2rem;
-  padding: 0.25rem 0.7rem;
+  margin: 2rem 0;
+  padding: 0.6rem 1.3rem;
+}
+
+/* DOM SECTION */
+
+div[data-view="entries"] {
+  margin-bottom: 2rem;
+}
+
+.dom-row-layout {
+  margin-top: 2rem;
+  padding: 0.5rem;
+}
+
+.no-entries-div {
+  margin-top: 4rem;
 }
 
 /* UTILITY CLASSES */

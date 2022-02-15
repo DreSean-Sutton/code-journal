@@ -24,9 +24,11 @@
     max-width: 900px;
   }
 
+  h1,
+  h2,
   .column-full,
   .column-half,
-  .submit-button__col {
+  .submit-button__div {
     padding: 0 0.75rem;
   }
 
@@ -34,7 +36,7 @@
     width: 50%;
   }
 
-  .label-title {
+  .title-margin-top {
     margin-top: 0;
   }
 }
