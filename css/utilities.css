@@ -1,0 +1,45 @@
+/* stylelint-disable selector-class-pattern */
+
+/* BASE CSS SELECTORS */
+
+img {
+  width: 100%;
+  max-width: 100%;
+}
+
+label {
+  display: inline-block;
+  margin: 1.25rem 0 0.5rem;
+}
+
+input {
+  padding: 0.5rem 0 0.5rem 0.4rem;
+}
+
+textarea {
+  resize: none;
+  padding-left: 0.5rem;
+}
+
+input,
+textarea {
+  width: 100%;
+  display: block;
+}
+
+/* FORM SECTION */
+
+.submit-button {
+  margin: 1rem 0 2rem;
+  padding: 0.25rem 0.7rem;
+}
+
+/* UTILITY CLASSES */
+
+.text-align-right {
+  text-align: right;
+}
+
+.justify-content-end {
+  justify-content: flex-end;
+}

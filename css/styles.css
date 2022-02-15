@@ -1,0 +1,68 @@
+:root {
+  --code-journal-background: rgb(240, 240, 240);
+  --purple-color: rgb(86, 43, 129);
+  --input-border-color: rgba(128, 128, 128, 0.329);
+}
+
+/* BASE CSS SELECTORS */
+
+body {
+  font-family: Roboto, sans-serif;
+  background: var(--code-journal-background);
+}
+
+header {
+  color: #fff;
+  background-color: var(--purple-color);
+}
+
+h1 {
+  font-size: 2.25rem;
+}
+
+h1,
+h2,
+label {
+  text-transform: capitalize;
+}
+
+label {
+  font-weight: 700;
+}
+
+input,
+textarea {
+  border: 2px solid var(--input-border-color);
+  border-radius: 4px;
+}
+
+input:hover,
+textarea:hover {
+  border-color: var(--purple-color);
+}
+
+/* HEADER SECTION */
+
+.project-name {
+  font-size: 1.3rem;
+  font-weight: 400;
+}
+
+/* FORM SECTION */
+.submit-button {
+  color: #fff;
+  background-color: var(--purple-color);
+  text-transform: uppercase;
+  font-size: 0.75rem;
+}
+
+.submit-button:hover {
+  transform: scale(1.2);
+  border-color: none;
+}
+
+.submit-button:active {
+  transform: translateY(5px);
+}
+
+/* UTILITY CLASSES */

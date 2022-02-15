@@ -1,3 +1,4 @@
+/* stylelint-disable selector-class-pattern */
 .hidden {
   display: none !important;
 }
@@ -24,11 +25,16 @@
   }
 
   .column-full,
-  .column-half {
+  .column-half,
+  .submit-button__col {
     padding: 0 0.75rem;
   }
 
   .column-half {
     width: 50%;
+  }
+
+  .label-title {
+    margin-top: 0;
   }
 }
