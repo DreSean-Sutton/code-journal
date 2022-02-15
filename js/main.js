@@ -29,3 +29,5 @@ function handleFormSubmit(event) {
   $form.reset();
   $image.src = 'images/placeholder-image-square.jpg';
 }
+
+// function
