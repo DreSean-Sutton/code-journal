@@ -29,18 +29,16 @@ textarea {
 
 /* FORM SECTION */
 
-.submit-button__col {
-  text-align: right;
-}
-
 .submit-button {
-  width: initial;
-  text-align: right;
   margin: 1rem 0 2rem;
-  padding: 0.25rem 0.6rem;
+  padding: 0.25rem 0.7rem;
 }
 
 /* UTILITY CLASSES */
+
+.text-align-right {
+  text-align: right;
+}
 
 .justify-content-end {
   justify-content: flex-end;

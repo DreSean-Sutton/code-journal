@@ -18,6 +18,7 @@ function handleImageSwap(event) {
 
 function handleFormSubmit(event) {
 
+  event.preventDefault();
   var formValues = {
     title: $title.value,
     photoURL: $photoURL.value,
@@ -25,6 +26,7 @@ function handleFormSubmit(event) {
     nextEntryId: data.nextEntryId + 1
   };
   data.nextEntryId++;
-  data.entries.unshift(formValues);
+  data.entries.push(formValues);
   $form.reset();
+  $image.src = 'images/placeholder-image-square.jpg';
 }
