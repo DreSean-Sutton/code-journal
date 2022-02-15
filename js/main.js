@@ -46,7 +46,6 @@ function showEntries() {
   $entryFormSection.classList.add('hidden');
   $entriesSection.classList.remove('hidden');
   $h1.textContent = 'entries';
-  $entriesButton.classList.add('hidden');
   $newButton.classList.remove('hidden');
 }
 
@@ -55,7 +54,6 @@ function showEntryForm() {
   $entryFormSection.classList.remove('hidden');
   $entriesSection.classList.add('hidden');
   $h1.textContent = 'new entry';
-  $entriesButton.classList.remove('hidden');
   $newButton.classList.add('hidden');
 }
 

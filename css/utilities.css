@@ -2,6 +2,10 @@
 
 /* BASE CSS SELECTORS */
 
+header {
+  padding: 0.1rem 0;
+}
+
 img {
   width: 100%;
   max-width: 100%;
@@ -43,20 +47,25 @@ textarea {
 }
 
 .new-button {
-  padding: 0.4rem 0.8rem;
+  padding: 0.6rem 1.1rem;
 }
 
 /* FORM SECTION */
 
 .submit-button {
   margin: 1rem 0 2rem;
-  padding: 0.25rem 0.7rem;
+  padding: 0.4rem 0.8rem;
 }
 
 /* DOM SECTION */
 
 .dom-row-layout {
   margin-top: 2rem;
+  padding: 0.5rem;
+}
+
+.no-entries-div {
+  margin-top: 4rem;
 }
 
 /* UTILITY CLASSES */
@@ -67,8 +76,4 @@ textarea {
 
 .justify-content-end {
   justify-content: flex-end;
-}
-
-.margin-top-0 {
-  margin-top: 0;
 }

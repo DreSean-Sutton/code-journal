@@ -18,7 +18,7 @@ header {
 }
 
 h1 {
-  font-size: 2.25rem;
+  font-size: 2.5rem;
 }
 
 h1,
@@ -60,12 +60,12 @@ a {
 /* HEADER SECTION */
 
 .project-name {
-  font-size: 1.3rem;
+  font-size: 1.6rem;
   font-weight: 400;
 }
 
 .entries-button__div > a {
-  font-size: 1.1rem;
+  font-size: 1.4rem;
 }
 
 .entries-button__div > a:hover {
@@ -74,12 +74,13 @@ a {
 
 .new-button {
   display: inline-block;
-  font-size: 1rem;
+  font-size: 1.3rem;
   background-color: var(--purple-color);
   border: none;
   border-radius: 5px;
+  box-shadow: 1px 3px 5px grey;
   text-transform: uppercase;
-  transition: 150ms;
+  transition: transform 150ms;
 }
 
 .new-button:hover {
@@ -95,9 +96,11 @@ a {
 .submit-button {
   color: #fff;
   background-color: var(--purple-color);
-  text-transform: uppercase;
   font-size: 0.75rem;
-  transition: 150ms;
+  border: none;
+  box-shadow: 1px 3px 5px grey;
+  text-transform: uppercase;
+  transition: transform 150ms;
 }
 
 .submit-button:hover {
@@ -113,11 +116,20 @@ a {
 
 .dom-row-layout {
   box-shadow: 0 0 5px grey;
-  transition: 300ms;
+  transition: transform 300ms;
 }
 
 .dom-row-layout:hover {
   transform: translateY(10px);
 }
 
+.no-entries-div {
+  font-size: 1.4rem;
+  text-align: center;
+}
+
 /* UTILITY CLASSES */
+
+.text-align-center {
+  text-align: center;
+}
