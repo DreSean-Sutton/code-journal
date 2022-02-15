@@ -14,6 +14,7 @@ var $entriesSection = document.querySelector('[data-view="entries"]');
 var $entriesButton = document.querySelector('#entries-button');
 var $newButton = document.querySelector('#new-button');
 var $h1 = document.querySelector('H1');
+var $noEntriesDiv = document.querySelector('.no-entries-div');
 
 $photoURL.addEventListener('input', handleImageSwap);
 $form.addEventListener('submit', handleFormSubmit);
@@ -47,6 +48,11 @@ function showEntries() {
   $entriesSection.classList.remove('hidden');
   $h1.textContent = 'entries';
   $newButton.classList.remove('hidden');
+  if (data.entries.length === 0) {
+    $noEntriesDiv.classList.remove('hidden');
+  } else {
+    $noEntriesDiv.classList.add('hidden');
+  }
 }
 
 function showEntryForm() {
@@ -55,6 +61,7 @@ function showEntryForm() {
   $entriesSection.classList.add('hidden');
   $h1.textContent = 'new entry';
   $newButton.classList.add('hidden');
+  $noEntriesDiv.classList.add('hidden');
 }
 
 function stayOnSamePageAfterRefresh() {
