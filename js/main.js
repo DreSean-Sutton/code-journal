@@ -12,12 +12,14 @@ var $entriesList = document.querySelector('#entries-list');
 var $entryFormSection = document.querySelector('[data-view="entry-form"]');
 var $entriesSection = document.querySelector('[data-view="entries"]');
 var $entriesButton = document.querySelector('#entries-button');
+var $newButton = document.querySelector('#new-button');
 var $h1 = document.querySelector('H1');
 
 $photoURL.addEventListener('input', handleImageSwap);
 $form.addEventListener('submit', handleFormSubmit);
 window.addEventListener('DOMContentLoaded', handleDOMEntries);
 $entriesButton.addEventListener('click', showEntries);
+$newButton.addEventListener('click', showEntryForm);
 
 function handleImageSwap(event) {
   $image.src = event.target.value;
@@ -43,6 +45,7 @@ function showEntries() {
   $entriesSection.classList.remove('hidden');
   $h1.textContent = 'entries';
   $entriesButton.classList.add('hidden');
+  $newButton.classList.remove('hidden');
 }
 
 function showEntryForm() {
@@ -51,6 +54,7 @@ function showEntryForm() {
   $entriesSection.classList.add('hidden');
   $h1.textContent = 'new entry';
   $entriesButton.classList.remove('hidden');
+  $newButton.classList.add('hidden');
 }
 
 function renderEntries(entry) {

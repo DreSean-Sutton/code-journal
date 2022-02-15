@@ -68,12 +68,35 @@ a {
   font-size: 1.1rem;
 }
 
+.entries-button__div > a:hover {
+  opacity: 80%;
+}
+
+.new-button {
+  display: inline-block;
+  font-size: 1rem;
+  background-color: var(--purple-color);
+  border: none;
+  border-radius: 5px;
+  text-transform: uppercase;
+  transition: 150ms;
+}
+
+.new-button:hover {
+  transform: scale(1.2);
+}
+
+.new-button:active {
+  transform: translateY(5px);
+}
+
 /* FORM SECTION */
 .submit-button {
   color: #fff;
   background-color: var(--purple-color);
   text-transform: uppercase;
   font-size: 0.75rem;
+  transition: 150ms;
 }
 
 .submit-button:hover {
