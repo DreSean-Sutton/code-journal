@@ -40,8 +40,8 @@ function handleFormSubmit(event) {
   $form.reset();
   $image.src = 'images/placeholder-image-square.jpg';
   showEntries();
-  $entriesList.prepend(renderEntries(data.entries[data.entries.length - 1]));
   currentEntryId = data.nextEntryId - 2;
+  $entriesList.prepend(renderEntries(data.entries[data.entries.length - 1]));
 }
 
 function showEntries() {
@@ -115,10 +115,14 @@ function renderEntries(entry) {
   $entryRow.addEventListener('click', handleEdit);
 
   function handleEdit(event) {
-    // console.log(event.target);
-    if (event.target === $editIcon) {
-      showEntryForm();
+    // debugger;
+    if (event.target !== $editIcon) {
+      return;
     }
+    // console.log(event);
+    showEntryForm();
+    var entriesParentId = event.target.closest('.dom-row-layout').getAttribute('data-entry-id') * 1;
+    // console.log(entriesParentId);
   }
 
   return $entryRow;
