@@ -1,7 +1,6 @@
 /* eslint-disable no-unused-vars */
 /* global data */
 /* exported data */
-var currentEntryId = 0;
 
 var $image = document.querySelector('#image');
 var $title = document.querySelector('#title');
@@ -16,12 +15,14 @@ var $entriesButton = document.querySelector('#entries-button');
 var $newButton = document.querySelector('#new-button');
 var $h1 = document.querySelector('H1');
 var $noEntriesDiv = document.querySelector('.no-entries-div');
+var $editIcon = document.querySelectorAll('.pen-icon');
 
 $photoURL.addEventListener('input', handleImageSwap);
 $form.addEventListener('submit', handleFormSubmit);
 window.addEventListener('DOMContentLoaded', handleDOMEntries);
 $entriesButton.addEventListener('click', showEntries);
 $newButton.addEventListener('click', showEntryForm);
+$entriesList.addEventListener('click', handleEdit);
 
 function handleImageSwap(event) {
   $image.src = event.target.value;
@@ -38,7 +39,6 @@ function handleFormSubmit(event) {
   if (data.editing === null) {
     data.nextEntryId++;
     data.entries.push(formValues);
-    currentEntryId = data.nextEntryId - 2;
     $entriesList.prepend(renderEntries(data.entries[data.entries.length - 1]));
   } else {
     // debugger;
@@ -95,6 +95,28 @@ function stayOnSamePageAfterRefresh() {
 
 stayOnSamePageAfterRefresh();
 
+function handleEdit(event) {
+  // console.log(event.target.tagName);
+  if (event.target.tagName !== $editIcon &&
+  event.target.dataset.entryId === undefined) {
+    return;
+  }
+  showEntryForm();
+  var entriesParent = event.target.closest('.dom-row-layout');
+  var entriesParentId = entriesParent.getAttribute('data-entry-id') * 1;
+
+  for (var i = 0; i < data.entries.length; i++) {
+    if (entriesParentId === data.entries[i].nextEntryId - 1) {
+      data.editing = entriesParent;
+      $image.src = data.entries[i].photoURL;
+      $title.value = data.entries[i].title;
+      $photoURL.value = data.entries[i].photoURL;
+      $message.value = data.entries[i].message;
+      break;
+    }
+  }
+}
+
 function renderEntries(entry) {
 
   var $entryRow = document.createElement('ROW');
@@ -105,8 +127,8 @@ function renderEntries(entry) {
   var $titleDiv = document.createElement('DIV');
   var $entryTitle = document.createElement('H3');
   var $iconDiv = document.createElement('DIV');
-  var $editIcon = document.createElement('I');
   var $entryText = document.createElement('P');
+  $editIcon = document.createElement('I');
 
   $entryRow.className = 'row dom-row-layout';
   $imgDiv.className = 'column-half';
@@ -117,7 +139,9 @@ function renderEntries(entry) {
   $entryTitle.className = 'title-margin-top';
 
   $entryImg.setAttribute('src', entry.photoURL);
-  $entryRow.setAttribute('data-entry-id', currentEntryId);
+  $entryRow.setAttribute('data-entry-id', entry.nextEntryId - 1);
+  $editIcon.setAttribute('data-entry-id', entry.nextEntryId - 1);
+
   $entryTitle.textContent = entry.title;
   $entryText.textContent = entry.message;
 
@@ -131,35 +155,11 @@ function renderEntries(entry) {
   $iconDiv.appendChild($editIcon);
   $textDiv.appendChild($entryText);
 
-  $entriesList.addEventListener('click', handleEdit);
-
-  function handleEdit(event) {
-    // debugger;
-    if (event.target !== $editIcon) {
-      return;
-    }
-    showEntryForm();
-    var entriesParent = event.target.closest('.dom-row-layout');
-    var entriesParentId = entriesParent.getAttribute('data-entry-id') * 1;
-
-    for (var i = 0; i < data.entries.length; i++) {
-      if (entriesParentId === data.entries[i].nextEntryId - 1) {
-        data.editing = entriesParent;
-        $image.src = data.entries[i].photoURL;
-        $title.value = data.entries[i].title;
-        $photoURL.value = data.entries[i].photoURL;
-        $message.value = data.entries[i].message;
-        break;
-      }
-    }
-  }
-
   return $entryRow;
 }
 
 function handleDOMEntries(entries) {
   for (var i = 0; i < data.entries.length; i++) {
     $entriesList.prepend(renderEntries(data.entries[i]));
-    currentEntryId++;
   }
 }
