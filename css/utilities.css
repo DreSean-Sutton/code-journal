@@ -38,7 +38,11 @@ textarea {
 }
 
 .entries-button__div {
-  margin-left: 2rem;
+  margin-left: 1.25rem;
+}
+
+.entries-button__div > a {
+  padding: 0.25rem 0.75rem;
 }
 
 .main-title-layout {

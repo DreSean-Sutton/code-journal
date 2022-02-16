@@ -19,6 +19,7 @@ header {
 
 h1 {
   font-size: 2.5rem;
+  text-shadow: 0 2px 5px grey;
 }
 
 h1,
@@ -30,6 +31,7 @@ label {
 label {
   font-size: 1.3rem;
   font-weight: 700;
+  text-shadow: 0 1.5px 2px grey;
 }
 
 input,
@@ -67,10 +69,16 @@ a {
 
 .entries-button__div > a {
   font-size: 1.4rem;
+  border-radius: 20px;
+  background-color: var(--purple-color);
 }
 
 .entries-button__div > a:hover {
   opacity: 80%;
+}
+
+.entries-button__div > a:active {
+  background-color: rgb(95 47 143);
 }
 
 .new-button {

@@ -34,14 +34,14 @@ function handleFormSubmit(event) {
     title: $title.value,
     photoURL: $photoURL.value,
     message: $message.value,
-    nextEntryId: data.nextEntryId
+    entryId: data.nextEntryId - 1
   };
   if (data.editing === null) {
     data.nextEntryId++;
     data.entries.push(formValues);
     $entriesList.prepend(renderEntries(data.entries[data.entries.length - 1]));
   } else {
-    var editsEntryId = data.editing.nextEntryId - 1;
+    var editsEntryId = data.editing.entryId;
     data.entries[editsEntryId].title = formValues.title;
     data.entries[editsEntryId].photoURL = formValues.photoURL;
     data.entries[editsEntryId].message = formValues.message;
@@ -104,7 +104,7 @@ function handleEdit(event) {
   var entryId = event.target.dataset.entryId * 1;
 
   for (var i = 0; i < data.entries.length; i++) {
-    if (entryId === data.entries[i].nextEntryId - 1) {
+    if (entryId === data.entries[i].entryId) {
       data.editing = data.entries[i];
       $image.src = data.entries[i].photoURL;
       $title.value = data.entries[i].title;
@@ -137,8 +137,8 @@ function renderEntries(entry) {
   $entryTitle.className = 'title-margin-top';
 
   $entryImg.setAttribute('src', entry.photoURL);
-  $entryRow.setAttribute('data-entry-id', entry.nextEntryId - 1);
-  $editIcon.setAttribute('data-entry-id', entry.nextEntryId - 1);
+  $entryRow.setAttribute('data-entry-id', entry.entryId);
+  $editIcon.setAttribute('data-entry-id', entry.entryId);
 
   $entryTitle.textContent = entry.title;
   $entryText.textContent = entry.message;
