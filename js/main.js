@@ -22,7 +22,7 @@ $form.addEventListener('submit', handleFormSubmit);
 window.addEventListener('DOMContentLoaded', handleDOMEntries);
 $entriesButton.addEventListener('click', showEntries);
 $newButton.addEventListener('click', showEntryForm);
-$entriesList.addEventListener('click');
+
 function handleImageSwap(event) {
   $image.src = event.target.value;
 }
@@ -77,6 +77,7 @@ function stayOnSamePageAfterRefresh() {
 stayOnSamePageAfterRefresh();
 
 function renderEntries(entry) {
+
   var $entryRow = document.createElement('ROW');
   var $imgDiv = document.createElement('DIV');
   var $entryImg = document.createElement('IMG');
@@ -110,6 +111,16 @@ function renderEntries(entry) {
   $titleDiv.appendChild($entryTitle);
   $iconDiv.appendChild($editIcon);
   $textDiv.appendChild($entryText);
+
+  $entryRow.addEventListener('click', handleEdit);
+
+  function handleEdit(event) {
+    // console.log(event.target);
+    if (event.target === $editIcon) {
+      showEntryForm();
+    }
+  }
+
   return $entryRow;
 }
 
