@@ -119,7 +119,6 @@ function renderEntries(entry) {
     if (event.target !== $editIcon) {
       return;
     }
-    // console.log(event);
     showEntryForm();
     var entriesParent = event.target.closest('.dom-row-layout');
     var entriesParentId = entriesParent.getAttribute('data-entry-id') * 1;
@@ -127,9 +126,12 @@ function renderEntries(entry) {
     for (var i = 0; i < data.entries.length; i++) {
       if (entriesParentId === data.entries[i].nextEntryId - 1) {
         data.editing = entriesParent;
+        $image.src = data.entries[i].photoURL;
+        $title.value = data.entries[i].title;
+        $photoURL.value = data.entries[i].photoURL;
+        $message.value = data.entries[i].message;
       }
     }
-    // console.log(entriesParentId);
   }
 
   return $entryRow;
