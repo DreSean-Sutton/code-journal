@@ -129,4 +129,24 @@ a {
   text-align: center;
 }
 
+.fa-pen {
+  display: inline-block;
+  color: var(--purple-color);
+  font-size: 1.4rem;
+  font-weight: 900;
+  border-radius: 10rem;
+  cursor: pointer;
+  transition: transform 200ms;
+}
+
+.fa-pen:hover {
+  transform: scale(1.2);
+  box-shadow: 0 0 10px white;
+}
+
+.fa-pen:active {
+  transform: translateY(3px);
+  box-shadow: 0 0 10px white;
+}
+
 /* UTILITY CLASSES */

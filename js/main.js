@@ -79,12 +79,20 @@ function renderEntries(entry) {
   var $imgDiv = document.createElement('DIV');
   var $entryImg = document.createElement('IMG');
   var $textDiv = document.createElement('DIV');
+  var $h3AndEditRow = document.createElement('ROW');
+  var $titleDiv = document.createElement('DIV');
   var $entryTitle = document.createElement('H3');
+  var $iconDiv = document.createElement('DIV');
+  var $editIcon = document.createElement('I');
   var $entryText = document.createElement('P');
 
   $entryRow.className = 'row dom-row-layout';
   $imgDiv.className = 'column-half';
   $textDiv.className = 'column-half';
+  $h3AndEditRow.className = 'row title-edit-layout';
+  $titleDiv.className = 'title-div-layout';
+  // $iconDiv.className = '';
+  $editIcon.className = 'fas fa-pen';
   $entryTitle.className = 'title-margin-top';
 
   $entryImg.setAttribute('src', entry.photoURL);
@@ -92,9 +100,13 @@ function renderEntries(entry) {
   $entryText.textContent = entry.message;
 
   $entryRow.appendChild($imgDiv);
-  $entryRow.appendChild($textDiv);
   $imgDiv.appendChild($entryImg);
-  $textDiv.appendChild($entryTitle);
+  $entryRow.appendChild($textDiv);
+  $textDiv.appendChild($h3AndEditRow);
+  $h3AndEditRow.appendChild($titleDiv);
+  $h3AndEditRow.appendChild($iconDiv);
+  $titleDiv.appendChild($entryTitle);
+  $iconDiv.appendChild($editIcon);
   $textDiv.appendChild($entryText);
   return $entryRow;
 }

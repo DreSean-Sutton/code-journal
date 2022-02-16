@@ -13,7 +13,7 @@ img {
 
 label {
   display: inline-block;
-  margin: 1.25rem 0 0.5rem;
+  margin: 1.5rem 0 0.5rem;
 }
 
 input {
@@ -70,6 +70,19 @@ div[data-view="entries"] {
 
 .no-entries-div {
   margin-top: 4rem;
+}
+
+.title-edit-layout {
+  justify-content: space-between;
+  align-items: center;
+}
+
+.title-div-layout {
+  width: 70%;
+}
+
+.fa-pen {
+  padding: 0.5rem;
 }
 
 /* UTILITY CLASSES */
