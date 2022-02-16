@@ -113,7 +113,7 @@ function renderEntries(entry) {
   $textDiv.className = 'column-half';
   $h3AndEditRow.className = 'row title-edit-layout';
   $titleDiv.className = 'title-div-layout';
-  $editIcon.className = 'fas fa-pen';
+  $editIcon.className = 'fas fa-pen pen-icon';
   $entryTitle.className = 'title-margin-top';
 
   $entryImg.setAttribute('src', entry.photoURL);
@@ -131,7 +131,7 @@ function renderEntries(entry) {
   $iconDiv.appendChild($editIcon);
   $textDiv.appendChild($entryText);
 
-  $entryRow.addEventListener('click', handleEdit);
+  $entriesList.addEventListener('click', handleEdit);
 
   function handleEdit(event) {
     // debugger;

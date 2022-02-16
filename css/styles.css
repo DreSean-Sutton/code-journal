@@ -129,7 +129,7 @@ a {
   text-align: center;
 }
 
-.fa-pen {
+.pen-icon {
   display: inline-block;
   color: var(--purple-color);
   font-size: 1.4rem;
@@ -139,12 +139,12 @@ a {
   transition: transform 200ms;
 }
 
-.fa-pen:hover {
+.pen-icon:hover {
   transform: scale(1.2);
   box-shadow: 0 0 10px white;
 }
 
-.fa-pen:active {
+.pen-icon:active {
   transform: translateY(3px);
   box-shadow: 0 0 10px white;
 }
