@@ -121,7 +121,14 @@ function renderEntries(entry) {
     }
     // console.log(event);
     showEntryForm();
-    var entriesParentId = event.target.closest('.dom-row-layout').getAttribute('data-entry-id') * 1;
+    var entriesParent = event.target.closest('.dom-row-layout');
+    var entriesParentId = entriesParent.getAttribute('data-entry-id') * 1;
+
+    for (var i = 0; i < data.entries.length; i++) {
+      if (entriesParentId === data.entries[i].nextEntryId - 1) {
+        data.editing = entriesParent;
+      }
+    }
     // console.log(entriesParentId);
   }
 
