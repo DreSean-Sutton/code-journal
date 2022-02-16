@@ -41,8 +41,7 @@ function handleFormSubmit(event) {
     data.entries.push(formValues);
     $entriesList.prepend(renderEntries(data.entries[data.entries.length - 1]));
   } else {
-    // debugger;
-    var editsEntryId = data.editing.getAttribute('data-entry-id') * 1;
+    var editsEntryId = data.editing.nextEntryId - 1;
     data.entries[editsEntryId].title = formValues.title;
     data.entries[editsEntryId].photoURL = formValues.photoURL;
     data.entries[editsEntryId].message = formValues.message;
@@ -86,7 +85,8 @@ function showEntryForm() {
 }
 
 function stayOnSamePageAfterRefresh() {
-  if (data.view === 'entries') {
+  if (data.view === 'entries' ||
+  data.editing !== null) {
     showEntries();
   } else {
     showEntryForm();
@@ -96,18 +96,16 @@ function stayOnSamePageAfterRefresh() {
 stayOnSamePageAfterRefresh();
 
 function handleEdit(event) {
-  // console.log(event.target.tagName);
   if (event.target.tagName !== $editIcon &&
   event.target.dataset.entryId === undefined) {
     return;
   }
   showEntryForm();
-  var entriesParent = event.target.closest('.dom-row-layout');
-  var entriesParentId = entriesParent.getAttribute('data-entry-id') * 1;
+  var entryId = event.target.dataset.entryId * 1;
 
   for (var i = 0; i < data.entries.length; i++) {
-    if (entriesParentId === data.entries[i].nextEntryId - 1) {
-      data.editing = entriesParent;
+    if (entryId === data.entries[i].nextEntryId - 1) {
+      data.editing = data.entries[i];
       $image.src = data.entries[i].photoURL;
       $title.value = data.entries[i].title;
       $photoURL.value = data.entries[i].photoURL;
