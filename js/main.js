@@ -49,6 +49,7 @@ function handleFormSubmit(event) {
     for (var i = $entriesList.children.length - 1; i >= 0; i--) {
       if ($entriesList.children[i].getAttribute('data-entry-id') * 1 === editsEntryId) {
         $entriesList.children[i].replaceWith(renderEntries(data.entries[editsEntryId]));
+        $entriesList.children[i].setAttribute('data-entry-id', editsEntryId);
         break;
       }
     }
