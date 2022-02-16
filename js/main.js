@@ -22,7 +22,7 @@ $form.addEventListener('submit', handleFormSubmit);
 window.addEventListener('DOMContentLoaded', handleDOMEntries);
 $entriesButton.addEventListener('click', showEntries);
 $newButton.addEventListener('click', showEntryForm);
-
+$entriesList.addEventListener('click');
 function handleImageSwap(event) {
   $image.src = event.target.value;
 }
