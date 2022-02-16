@@ -35,13 +35,28 @@ function handleFormSubmit(event) {
     message: $message.value,
     nextEntryId: data.nextEntryId
   };
-  data.nextEntryId++;
-  data.entries.push(formValues);
-  $form.reset();
+  if (data.editing === null) {
+    data.nextEntryId++;
+    data.entries.push(formValues);
+    currentEntryId = data.nextEntryId - 2;
+    $entriesList.prepend(renderEntries(data.entries[data.entries.length - 1]));
+  } else {
+    // debugger;
+    var editsEntryId = data.editing.getAttribute('data-entry-id') * 1;
+    data.entries[editsEntryId].title = formValues.title;
+    data.entries[editsEntryId].photoURL = formValues.photoURL;
+    data.entries[editsEntryId].message = formValues.message;
+    for (var i = $entriesList.children.length - 1; i >= 0; i--) {
+      if ($entriesList.children[i].getAttribute('data-entry-id') * 1 === editsEntryId) {
+        $entriesList.children[i].replaceWith(renderEntries(data.entries[editsEntryId]));
+        break;
+      }
+    }
+    data.editing = null;
+  }
   $image.src = 'images/placeholder-image-square.jpg';
   showEntries();
-  currentEntryId = data.nextEntryId - 2;
-  $entriesList.prepend(renderEntries(data.entries[data.entries.length - 1]));
+  $form.reset();
 }
 
 function showEntries() {
@@ -50,6 +65,9 @@ function showEntries() {
   $entriesSection.classList.remove('hidden');
   $h1.textContent = 'entries';
   $newButton.classList.remove('hidden');
+  $form.reset();
+  $image.src = 'images/placeholder-image-square.jpg';
+  data.editing = null;
   if (data.entries.length === 0) {
     $noEntriesDiv.classList.remove('hidden');
   } else {
@@ -130,6 +148,7 @@ function renderEntries(entry) {
         $title.value = data.entries[i].title;
         $photoURL.value = data.entries[i].photoURL;
         $message.value = data.entries[i].message;
+        break;
       }
     }
   }
