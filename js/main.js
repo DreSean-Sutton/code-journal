@@ -1,6 +1,7 @@
 /* eslint-disable no-unused-vars */
 /* global data */
 /* exported data */
+var currentEntryId = 0;
 
 var $image = document.querySelector('#image');
 var $title = document.querySelector('#title');
@@ -40,6 +41,7 @@ function handleFormSubmit(event) {
   $image.src = 'images/placeholder-image-square.jpg';
   showEntries();
   $entriesList.prepend(renderEntries(data.entries[data.entries.length - 1]));
+  currentEntryId = data.nextEntryId - 2;
 }
 
 function showEntries() {
@@ -91,11 +93,11 @@ function renderEntries(entry) {
   $textDiv.className = 'column-half';
   $h3AndEditRow.className = 'row title-edit-layout';
   $titleDiv.className = 'title-div-layout';
-  // $iconDiv.className = '';
   $editIcon.className = 'fas fa-pen';
   $entryTitle.className = 'title-margin-top';
 
   $entryImg.setAttribute('src', entry.photoURL);
+  $entryRow.setAttribute('data-entry-id', currentEntryId);
   $entryTitle.textContent = entry.title;
   $entryText.textContent = entry.message;
 
@@ -112,8 +114,8 @@ function renderEntries(entry) {
 }
 
 function handleDOMEntries(entries) {
-
   for (var i = 0; i < data.entries.length; i++) {
     $entriesList.prepend(renderEntries(data.entries[i]));
+    currentEntryId++;
   }
 }
