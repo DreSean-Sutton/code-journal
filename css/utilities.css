@@ -1,4 +1,7 @@
 /* stylelint-disable selector-class-pattern */
+:root {
+  --typical-button-padding: 0.6rem 1.3rem;
+}
 
 /* BASE CSS SELECTORS */
 
@@ -59,7 +62,7 @@ textarea {
 .submit-button,
 .delete-button {
   margin: 2rem 0;
-  padding: 0.6rem 1.3rem;
+  padding: var(--typical-button-padding);
 }
 
 .delete-submit-button-layout {
@@ -95,8 +98,33 @@ div[data-view="entries"] {
   padding: 0.5rem;
 }
 
+/* MODAL SECTION */
+
+.modal-layout {
+  width: 80%;
+  max-width: 400px;
+  height: 180px;
+  margin: auto;
+  justify-content: center;
+}
+
+.yes-no-buttons-layout {
+  margin-top: 2.5rem;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.no-button,
+.yes-button {
+  padding: var(--typical-button-padding);
+}
+
 /* UTILITY CLASSES */
 
 .justify-content-end {
   justify-content: flex-end;
+}
+
+.text-align-center {
+  text-align: center;
 }

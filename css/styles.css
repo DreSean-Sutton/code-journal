@@ -123,20 +123,10 @@ a {
   transition: transform 150ms;
 }
 
-.submit-button:hover,
-.delete-button:hover {
-  transform: scale(1.2);
-  border-color: none;
-}
-
-.submit-button:active,
-.delete-button:active {
-  transform: translateY(5px);
-}
-
 /* DOM SECTION */
 
 .dom-row-layout {
+  border-radius: 10px;
   box-shadow: 0 0 5px grey;
   transition: transform 300ms;
 }
@@ -168,6 +158,68 @@ a {
 .pen-icon:active {
   transform: translateY(3px);
   box-shadow: 0 0 10px white;
+}
+
+/* MODAL SECTION */
+
+.overlay {
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(12 12 12 / 0.85);
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+.modal-layout {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 10%;
+  left: 0;
+  background-color: var(--code-journal-background);
+  border: none;
+  border-radius: 10px;
+  box-shadow: 2px 5px 8px rgb(0, 0, 0);
+}
+
+.no-button {
+  background-color: red;
+}
+
+.yes-button {
+  background-color: green;
+}
+
+.no-button,
+.yes-button {
+  display: inline-block;
+  font-size: 1.3rem;
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  box-shadow: 1px 3px 5px grey;
+  text-transform: uppercase;
+  transition: transform 150ms;
+}
+
+/* HOVER/ACTIVE GROUP */
+
+.submit-button:hover,
+.delete-button:hover,
+.no-button:hover,
+.yes-button:hover {
+  transform: scale(1.2);
+  border-color: none;
+}
+
+.submit-button:active,
+.delete-button:active,
+.no-button:active,
+.yes-button:active {
+  transform: translateY(5px);
 }
 
 /* UTILITY CLASSES */
