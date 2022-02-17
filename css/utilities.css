@@ -120,11 +120,3 @@ div[data-view="entries"] {
 }
 
 /* UTILITY CLASSES */
-
-.justify-content-end {
-  justify-content: flex-end;
-}
-
-.text-align-center {
-  text-align: center;
-}
