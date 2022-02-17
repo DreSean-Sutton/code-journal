@@ -79,6 +79,8 @@ function showEntries() {
   $image.src = 'images/placeholder-image-square.jpg';
   data.editing = null;
   $deleteButton.classList.add('hidden');
+  $modal.classList.add('hidden');
+  $overlay.classList.add('hidden');
   if (data.entries.length === 0) {
     $noEntriesDiv.classList.remove('hidden');
   } else {
@@ -137,6 +139,23 @@ function handleEntryDelete(event) {
   if (event.target === $noDeleteButon) {
     $modal.classList.add('hidden');
     $overlay.classList.add('hidden');
+  }
+  if (event.target === $yesDeleteButon) {
+    var entryId = data.editing.entryId;
+
+    for (var i = 0; i < data.entries.length; i++) {
+      if (entryId === data.entries[i].entryId) {
+        data.entries.splice(i, 1);
+        break;
+      }
+    }
+    for (var j = $entriesList.children.length - 1; j >= 0; j--) {
+      if ($entriesList.children[j].getAttribute('data-entry-id') * 1 === entryId) {
+        $entriesList.children[j].remove();
+        break;
+      }
+    }
+    showEntries();
   }
 }
 
