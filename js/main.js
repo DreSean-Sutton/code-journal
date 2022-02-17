@@ -28,7 +28,7 @@ $entriesButton.addEventListener('click', showEntries);
 $newButton.addEventListener('click', showEntryForm);
 $entriesList.addEventListener('click', handleEdit);
 $deleteButton.addEventListener('click', openDeleteModal);
-// $modal.addEventListener('click', handleEntryDelete);
+$modal.addEventListener('click', handleEntryDelete);
 
 function handleImageSwap(event) {
   $image.src = event.target.value;
@@ -131,6 +131,13 @@ function handleEdit(event) {
 function openDeleteModal(event) {
   $modal.classList.remove('hidden');
   $overlay.classList.remove('hidden');
+}
+
+function handleEntryDelete(event) {
+  if (event.target === $noDeleteButon) {
+    $modal.classList.add('hidden');
+    $overlay.classList.add('hidden');
+  }
 }
 
 stayOnSamePageAfterRefresh();
