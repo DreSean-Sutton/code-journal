@@ -73,16 +73,16 @@
     <div data-view="entries" class="hidden">
       <ul id="entries-list"></ul>
     </div>
-    <div id="hidden" class="overlay hidden"></div>
-    <div id="modal-layout" class="row modal-layout hidden">
+    <div id="overlay" class="overlay hidden"></div>
+    <div id="delete-confirmation-modal" class="row modal-layout hidden">
       <div class="column-four-fifth">
         <h3 class="text-align-center">Are you sure you want to delete this entry?</h3>
         <div class="row yes-no-buttons-layout">
           <div class="">
-            <a class="no-button" href="#">no</a>
+            <a id="no-button__delete" class="no-button" href="#">no</a>
           </div>
           <div class="">
-            <a class="yes-button" href="#">yes</a>
+            <a id="yes-button__delete" class="yes-button" href="#">yes</a>
           </div>
         </div>
       </div>

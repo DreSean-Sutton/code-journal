@@ -16,6 +16,10 @@ var $newButton = document.querySelector('#new-button');
 var $h1 = document.querySelector('H1');
 var $noEntriesDiv = document.querySelector('.no-entries-div');
 var $deleteButton = document.querySelector('#delete-button');
+var $modal = document.querySelector('#delete-confirmation-modal');
+var $overlay = document.querySelector('#overlay');
+var $noDeleteButon = document.querySelector('#no-button__delete');
+var $yesDeleteButon = document.querySelector('#yes-button__delete');
 
 $photoURL.addEventListener('input', handleImageSwap);
 $form.addEventListener('submit', handleFormSubmit);
@@ -23,7 +27,8 @@ window.addEventListener('DOMContentLoaded', handleDOMEntries);
 $entriesButton.addEventListener('click', showEntries);
 $newButton.addEventListener('click', showEntryForm);
 $entriesList.addEventListener('click', handleEdit);
-// $deleteButton.addEventListener('click', handleDelete);
+$deleteButton.addEventListener('click', openDeleteModal);
+// $modal.addEventListener('click', handleEntryDelete);
 
 function handleImageSwap(event) {
   $image.src = event.target.value;
@@ -121,6 +126,11 @@ function handleEdit(event) {
   }
   showEntryForm();
   $h1.textContent = 'edit';
+}
+
+function openDeleteModal(event) {
+  $modal.classList.remove('hidden');
+  $overlay.classList.remove('hidden');
 }
 
 stayOnSamePageAfterRefresh();
