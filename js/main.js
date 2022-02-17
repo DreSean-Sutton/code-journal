@@ -94,7 +94,8 @@ function showEntryForm() {
 }
 
 function stayOnSamePageAfterRefresh() {
-  if (data.view === 'entries') {
+  if (data.view === 'entries' ||
+  data.editing !== null) {
     showEntries();
   } else {
     showEntryForm();
