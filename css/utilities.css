@@ -13,7 +13,7 @@ img {
 
 label {
   display: inline-block;
-  margin: 1.25rem 0 0.5rem;
+  margin: 1.5rem 0 0.5rem;
 }
 
 input {
@@ -38,7 +38,11 @@ textarea {
 }
 
 .entries-button__div {
-  margin-left: 2rem;
+  margin-left: 1.25rem;
+}
+
+.entries-button__div > a {
+  padding: 0.25rem 0.75rem;
 }
 
 .main-title-layout {
@@ -70,6 +74,19 @@ div[data-view="entries"] {
 
 .no-entries-div {
   margin-top: 4rem;
+}
+
+.title-edit-layout {
+  justify-content: space-between;
+  align-items: center;
+}
+
+.title-div-layout {
+  width: 70%;
+}
+
+.pen-icon {
+  padding: 0.5rem;
 }
 
 /* UTILITY CLASSES */

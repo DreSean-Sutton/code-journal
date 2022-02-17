@@ -26,6 +26,7 @@
 
   h1,
   h2,
+  div[data-view="entries"],
   .column-full,
   .column-half,
   .submit-button__div {

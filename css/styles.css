@@ -19,6 +19,7 @@ header {
 
 h1 {
   font-size: 2.5rem;
+  text-shadow: 0 2px 5px grey;
 }
 
 h1,
@@ -30,6 +31,7 @@ label {
 label {
   font-size: 1.3rem;
   font-weight: 700;
+  text-shadow: 0 1.5px 2px grey;
 }
 
 input,
@@ -67,10 +69,17 @@ a {
 
 .entries-button__div > a {
   font-size: 1.4rem;
+  border-radius: 20px;
+  background-color: var(--purple-color);
+  transition: box-shadow 200ms;
 }
 
 .entries-button__div > a:hover {
   opacity: 80%;
+}
+
+.entries-button__div > a:active {
+  box-shadow: inset 0 5px 10px 10px rgb(95 47 143);
 }
 
 .new-button {
@@ -127,6 +136,26 @@ a {
 .no-entries-div {
   font-size: 1.4rem;
   text-align: center;
+}
+
+.pen-icon {
+  display: inline-block;
+  color: var(--purple-color);
+  font-size: 1.4rem;
+  font-weight: 900;
+  border-radius: 10rem;
+  cursor: pointer;
+  transition: transform 200ms;
+}
+
+.pen-icon:hover {
+  transform: scale(1.2);
+  box-shadow: 0 0 10px white;
+}
+
+.pen-icon:active {
+  transform: translateY(3px);
+  box-shadow: 0 0 10px white;
 }
 
 /* UTILITY CLASSES */
