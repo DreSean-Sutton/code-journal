@@ -29,7 +29,8 @@
   div[data-view="entries"],
   .column-full,
   .column-half,
-  .submit-button__div {
+  .submit-button__div,
+  .delete-submit-button-layout {
     padding: 0 0.75rem;
   }
 

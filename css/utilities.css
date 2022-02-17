@@ -56,9 +56,15 @@ textarea {
 
 /* FORM SECTION */
 
-.submit-button {
+.submit-button,
+.delete-button {
   margin: 2rem 0;
   padding: 0.6rem 1.3rem;
+}
+
+.delete-submit-button-layout {
+  justify-content: space-between;
+  align-items: center;
 }
 
 /* DOM SECTION */
@@ -90,10 +96,6 @@ div[data-view="entries"] {
 }
 
 /* UTILITY CLASSES */
-
-.text-align-right {
-  text-align: right;
-}
 
 .justify-content-end {
   justify-content: flex-end;
