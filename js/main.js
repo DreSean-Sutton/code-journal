@@ -34,21 +34,26 @@ function handleFormSubmit(event) {
     title: $title.value,
     photoURL: $photoURL.value,
     message: $message.value,
-    entryId: data.nextEntryId - 1
+    entryId: data.nextEntryId
   };
   if (data.editing === null) {
     data.nextEntryId++;
     data.entries.push(formValues);
     $entriesList.prepend(renderEntries(data.entries[data.entries.length - 1]));
   } else {
+
     var editsEntryId = data.editing.entryId;
-    data.entries[editsEntryId].title = formValues.title;
-    data.entries[editsEntryId].photoURL = formValues.photoURL;
-    data.entries[editsEntryId].message = formValues.message;
+    for (var j = 0; j < data.entries.length; j++) {
+      if (data.entries[j].entryId === editsEntryId) {
+        data.entries[j].title = formValues.title;
+        data.entries[j].photoURL = formValues.photoURL;
+        data.entries[j].message = formValues.message;
+        break;
+      }
+    }
     for (var i = $entriesList.children.length - 1; i >= 0; i--) {
-      if ($entriesList.children[i].getAttribute('data-entry-id') * 1 === editsEntryId) {
-        $entriesList.children[i].replaceWith(renderEntries(data.entries[editsEntryId]));
-        $entriesList.children[i].setAttribute('data-entry-id', editsEntryId);
+      if ($entriesList.children[i].getAttribute('data-entry-id') * 1 === data.editing.entryId) {
+        $entriesList.children[i].replaceWith(renderEntries(data.entries[j]));
         break;
       }
     }
@@ -93,11 +98,9 @@ function stayOnSamePageAfterRefresh() {
   }
 }
 
-stayOnSamePageAfterRefresh();
-
 function handleEdit(event) {
-  if (event.target.tagName !== $editIcon &&
-  event.target.dataset.entryId === undefined) {
+
+  if (!event.target.dataset.editPen) {
     return;
   }
   showEntryForm();
@@ -114,6 +117,8 @@ function handleEdit(event) {
     }
   }
 }
+
+stayOnSamePageAfterRefresh();
 
 function renderEntries(entry) {
 
@@ -139,6 +144,7 @@ function renderEntries(entry) {
   $entryImg.setAttribute('src', entry.photoURL);
   $entryRow.setAttribute('data-entry-id', entry.entryId);
   $editIcon.setAttribute('data-entry-id', entry.entryId);
+  $editIcon.setAttribute('data-edit-pen', true);
 
   $entryTitle.textContent = entry.title;
   $entryText.textContent = entry.message;
