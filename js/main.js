@@ -120,6 +120,7 @@ function handleEdit(event) {
     }
   }
   showEntryForm();
+  $h1.textContent = 'edit';
 }
 
 stayOnSamePageAfterRefresh();
